@@ -33,7 +33,7 @@ jobs:
       # Verify cache contents
       - name: Check cache contents
         run: |
-          echo "pwd"
+          pwd
           echo "Number of files in test_files:"
           ls test_files | wc -l
 
