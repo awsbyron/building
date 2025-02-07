@@ -21,12 +21,12 @@ jobs:
             echo "Content for file $i" > test_files/file_$i.txt
           done
 
-      # Cache the test files
+      # Restore cache
       - uses: actions/cache/restore@v4
-        id: cache
+        id: cache-restore
         with:
           path: test_files
-          key: ${{ runner.os }}-test-files-${{ github.run_id }}
+          key: ${{ runner.os }}-test-files-${{ github.sha }}
           restore-keys: |
             ${{ runner.os }}-test-files-
 
@@ -37,3 +37,10 @@ jobs:
           ls test_files | wc -l
           echo "First few files:"
           ls -l test_files | head -n 5
+
+      # Save cache
+      - uses: actions/cache/save@v4
+        id: cache-save
+        with:
+          path: test_files
+          key: ${{ runner.os }}-test-files-${{ github.sha }}
