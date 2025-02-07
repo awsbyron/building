@@ -5,7 +5,12 @@ on:
     branches: [ main ]
   workflow_dispatch:
 
-steps:
+jobs:
+  cache:
+    name: Cache
+    runs-on: ubuntu-latest
+
+    steps:
   - uses: actions/checkout@v4
   - uses: actions/cache/restore@v4
     id: cache
