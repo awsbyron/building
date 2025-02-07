@@ -11,19 +11,19 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-  - uses: actions/checkout@v4
-  - uses: actions/cache/restore@v4
-    id: cache
-    with:
-      path: path/to/dependencies
-      key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+      - uses: actions/checkout@v4
+      - uses: actions/cache/restore@v4
+        id: cache
+        with:
+          path: path/to/dependencies
+          key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
 
-  - name: Install Dependencies
-    if: steps.cache.outputs.cache-hit != 'true'
-    # run: /install.sh
+      - name: Install Dependencies
+        if: steps.cache.outputs.cache-hit != 'true'
+        # run: /install.sh
 
-  - name: Build
-    # run: /build.sh
+      - name: Build
+        # run: /build.sh
 
-  - name: Publish package to public
-    # run: /publish.sh
+      - name: Publish package to public
+        # run: /publish.sh
