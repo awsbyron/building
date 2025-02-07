@@ -35,8 +35,6 @@ jobs:
         run: |
           echo "Number of files in test_files:"
           ls test_files | wc -l
-          echo "First few files:"
-          ls -l test_files | head -n 5
 
       # Save cache
       - uses: actions/cache/save@v4
