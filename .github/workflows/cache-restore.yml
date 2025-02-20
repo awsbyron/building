@@ -13,33 +13,21 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Step to create test files
-      - name: Create test files
-        run: |
-          mkdir -p test_files
-          for i in {1..100}; do
-            echo "Content for file $i" > test_files/file_$i.txt
-          done
-
       # Restore cache
       - uses: actions/cache/restore@v4
         id: cache-restore
         with:
-          path: test_files
+          path: node_modules
           key: ${{ runner.os }}-test-files-${{ github.sha }}
-          restore-keys: |
-            ${{ runner.os }}-test-files-
 
-      # Verify cache contents
-      - name: Check cache contents
+      # Step to create test files
+      - name: Create test files
         run: |
-          pwd
-          echo "Number of files in test_files:"
-          ls test_files | wc -l
+          npm install
 
       # Save cache
       - uses: actions/cache/save@v4
         id: cache-save
         with:
-          path: test_files
+          path: node_modules
           key: ${{ runner.os }}-test-files-${{ github.sha }}
