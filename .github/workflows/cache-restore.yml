@@ -13,21 +13,24 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-      # Restore cache
-      - uses: actions/cache/restore@v4
-        id: cache-restore
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-test-files-${{ github.sha }}
+      # # Restore cache
+      # - uses: actions/cache/restore@v4
+      #   id: cache-restore
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-test-files-${{ github.sha }}
 
       # Step to create test files
       - name: Create test files
         run: |
           npm install
+          echo "Direct copy"
+          'mkdir -p copy && cp -r node_modules/* copy/'
+          du -sh copy/
 
-      # Save cache
-      - uses: actions/cache/save@v4
-        id: cache-save
-        with:
-          path: node_modules
-          key: ${{ runner.os }}-test-files-${{ github.sha }}
+      # # Save cache
+      # - uses: actions/cache/save@v4
+      #   id: cache-save
+      #   with:
+      #     path: node_modules
+      #     key: ${{ runner.os }}-test-files-${{ github.sha }}
