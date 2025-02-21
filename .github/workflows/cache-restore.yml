@@ -25,7 +25,7 @@ jobs:
         run: |
           npm install
           echo "Direct copy"
-          'mkdir -p copy && cp -r node_modules/* copy/'
+          mkdir -p copy && cp -r node_modules/* copy/
           du -sh copy/
 
       # # Save cache
