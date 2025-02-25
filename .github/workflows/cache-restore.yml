@@ -23,7 +23,7 @@ jobs:
       - name: Test cache
         run: |
           npm install
-          sudo yum -y install sysstat
+          brew -y install sysstat
           iostat  1 > iostat_log.txt & IOSTAT_PID=$!
           date +%T
           /usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P node_modules/ --use-compress-program zstdmt
