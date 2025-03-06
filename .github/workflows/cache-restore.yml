@@ -18,26 +18,17 @@ jobs:
         id: cache-restore
         with:
           path: node_modules/
-          key: ${{ runner.os }}-test-files-${{ github.sha }}
+          key: help-cache
+          restore-keys: |
+            help-        
 
       - name: Test cache
         run: |
           npm install
-          # brew -y install sysstat
-          iostat  1 > iostat_log.txt & IOSTAT_PID=$!
-          date +%T
-          /usr/bin/tar --posix -cf cache.tzst --exclude cache.tzst -P node_modules/ --use-compress-program zstdmt
-          date +%T
-          /usr/bin/tar --use-compress-program=unzstd -xf cache.tzst
-          date +%T
-          kill $IOSTAT_PID
-          cat iostat_log.txt
-
-
 
       # Save cache
       - uses: actions/cache/save@v4
         id: cache-save
         with:
           path: node_modules/
-          key: ${{ runner.os }}-test-files-${{ github.sha }}
+          key: help-cache
