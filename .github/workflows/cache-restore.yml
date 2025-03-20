@@ -17,7 +17,7 @@ jobs:
       - uses: actions/cache/restore@v4
         id: cache-restore
         with:
-          path: node_modules/
+          path: Gemfile
           key: help-cache-non-exist
           restore-keys: |
             help-        
@@ -26,9 +26,9 @@ jobs:
         run: |
           npm install
 
-      # Save cache
-      - uses: actions/cache/save@v4
-        id: cache-save
-        with:
-          path: node_modules/
-          key: help-cache
+      # # Save cache
+      # - uses: actions/cache/save@v4
+      #   id: cache-save
+      #   with:
+      #     path: node_modules/
+      #     key: help-cache
