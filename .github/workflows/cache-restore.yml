@@ -18,7 +18,7 @@ jobs:
         id: cache-restore
         with:
           path: node_modules/
-          key: help-cache
+          key: help-cache-non-exist
           restore-keys: |
             help-        
 
