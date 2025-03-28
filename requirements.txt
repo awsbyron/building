@@ -6,3 +6,5 @@ Django==4.2.7
 pandas==2.1.3
 numpy==1.26.2
 scipy==1.11.3
+
+cfn-lint==0.83.3
