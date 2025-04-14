@@ -19,6 +19,7 @@ phases:
     commands:
       - mkdir -p Data
       - touch Data/test.txt
+      - echo "test content" >> Data/test.txt
       - du -sh /tmp/codebuild*/cache/custom/ || true
 
 cache:
