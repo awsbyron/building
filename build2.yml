@@ -5,6 +5,6 @@ phases:
     commands:
       - ls Data || true
 
-cache:
-  paths:
-    - 'Data/**/*'
+# cache:
+#   paths:
+#     - 'Data/**/*'
