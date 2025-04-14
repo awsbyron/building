@@ -15,5 +15,11 @@ batch:
 
 phases:
   build:
+    on-failure: continue
     commands:
-      - echo "hello"
+      - mkdir -p Data
+      - touch Data/test.txt
+
+cache:
+  paths:
+    - 'Data/**/*'
