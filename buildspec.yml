@@ -1,0 +1,19 @@
+version: 0.2
+
+batch:
+  fast-fail: false
+  build-graph:
+    - identifier: build1
+      env:
+        fleet: fleet_name
+    - identifier: build2
+      buildspec: build2.yml
+      env:
+        fleet: fleet_name
+      depend-on:
+        - build1
+
+phases:
+  build:
+    commands:
+      - echo "hello"
