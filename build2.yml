@@ -3,4 +3,8 @@ version: 0.2
 phases:
   build:
     commands:
-      - echo "hello"
+      - ls Data || true
+
+cache:
+  paths:
+    - 'Data/**/*'
