@@ -7,7 +7,9 @@ phases:
       - readlink Data || true
       - system_profiler SPHardwareDataType | grep "Hardware UUID" || true
       - cat Data/test.txt || true
-      - hostname
+      - hostname || true
+      - uname -s || true
+      - echo $OSTYPE || true
 
 cache:
   paths:
