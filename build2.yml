@@ -4,7 +4,8 @@ phases:
   build:
     commands:
       - ls Data || true
-      - du -sh /tmp/codebuild*/cache/custom/ || true
+      - readlink Data || true
+      # - du -sh /tmp/codebuild*/cache/custom/ || true
       - cat Data/test.txt || true
 
 cache:
