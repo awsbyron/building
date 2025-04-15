@@ -5,7 +5,7 @@ phases:
     commands:
       - ls Data || true
       - readlink Data || true
-      # - du -sh /tmp/codebuild*/cache/custom/ || true
+      - system_profiler SPHardwareDataType | grep "Hardware UUID"
       - cat Data/test.txt || true
 
 cache:
