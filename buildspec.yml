@@ -17,10 +17,10 @@ phases:
   build:
     on-failure: continue
     commands:
-      - mkdir -p Data
+      - sudo mkdir -p Data
       - sudo chmod -R 777 Data
-      - touch Data/test.txt
-      - echo "test content" >> Data/test.txt
+      - sudo touch Data/test.txt
+      # - echo "test content" >> Data/test.txt
       - system_profiler SPHardwareDataType | grep "Hardware UUID" || true
       - uname -s || true
       - echo $OSTYPE || true
