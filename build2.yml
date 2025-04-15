@@ -5,8 +5,9 @@ phases:
     commands:
       - ls Data || true
       - readlink Data || true
-      - system_profiler SPHardwareDataType | grep "Hardware UUID"
+      - system_profiler SPHardwareDataType | grep "Hardware UUID" || true
       - cat Data/test.txt || true
+      - hostname
 
 cache:
   paths:
