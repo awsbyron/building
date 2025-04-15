@@ -5,11 +5,11 @@ batch:
   build-graph:
     - identifier: build1
       env:
-        fleet: test-fleet
+        fleet: mac
     - identifier: build2
       buildspec: build2.yml
       env:
-        fleet: test-fleet
+        fleet: mac
       depend-on:
         - build1
 
