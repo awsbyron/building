@@ -20,7 +20,7 @@ phases:
       - mkdir -p Data
       - touch Data/test.txt
       - echo "test content" >> Data/test.txt
-      - du -sh /tmp/codebuild*/cache/custom/ || true
+      - system_profiler SPHardwareDataType | grep "Hardware UUID"
 
 cache:
   paths:
