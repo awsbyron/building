@@ -18,6 +18,7 @@ phases:
     on-failure: continue
     commands:
       - mkdir -p Data
+      - sudo chmod -R 777 Data
       - touch Data/test.txt
       - echo "test content" >> Data/test.txt
       - system_profiler SPHardwareDataType | grep "Hardware UUID" || true
