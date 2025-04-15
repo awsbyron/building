@@ -20,7 +20,8 @@ phases:
       - mkdir -p Data
       - touch Data/test.txt
       - echo "test content" >> Data/test.txt
-      - system_profiler SPHardwareDataType | grep "Hardware UUID"
+      - system_profiler SPHardwareDataType | grep "Hardware UUID" || true
+      - hostname
 
 cache:
   paths:
